@@ -4,7 +4,16 @@
     <string name="app_name">ScanDemoExample</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="loginText">ورود با اتوماسیون</string>
+    <string name="loginText">ورود به اتوماسیون</string>
     <string name="userNameText">نام کاربری</string>
+    <string name="getUsernameHint">نام کاربری را وارد کنید</string>
+    <string name="loginToAppText">ورود به سامانه</string>
+    <string name="appVersionText">1.0.0</string>
+    <string name="passwordTextLogin">رمز عبور خود را وارد کنید</string>
+    <string name="AlertDialogText">خطا در ورود</string>
+    <string name="lorem_ipsum">لورم ایپسوم یا طرح‌نما (به انگلیسی: Lorem ipsum) به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح گرافیک</string>
+    <string name="ok">باشه</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

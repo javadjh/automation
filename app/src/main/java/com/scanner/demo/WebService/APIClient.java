@@ -1,8 +1,12 @@
 package com.scanner.demo.WebService;
 
+import com.scanner.demo.loginPage.model.LoginModelBody;
+import com.scanner.demo.loginPage.model.LoginModelResponseRoot;
+
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 import hu.akarnokd.rxjava3.retrofit.RxJava3CallAdapterFactory;
+import io.reactivex.rxjava3.core.Single;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -11,7 +15,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class APIClient  {
-    public static final String BASE_URL = "http://192.168.11.1:5000";
+    public static final String BASE_URL = "http://192.168.1.33:5000";
     Retrofit retrofit = null;
     APIInterface apiInterface;
     public APIClient(){
@@ -39,8 +43,8 @@ public class APIClient  {
         apiInterface = retrofit.create(APIInterface.class);
 
     }
-    /*public Single<UsersModel> GET_USERS(getUsersRequest getUsersRequest){
-        return apiInterface.getUsers(getUsersRequest);
-    }*/
+    public Single<LoginModelResponseRoot> LOGIN(LoginModelBody loginModelBody){
+        return apiInterface.login(loginModelBody);
+    }
 
 }

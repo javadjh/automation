@@ -34,6 +34,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <EditText
+                android:drawablePadding="10dp"
+                android:drawableRight="@drawable/ic_baseline_person_24"
                 android:id="@+id/usernameLogin"
                 android:text="@={login.username}"
                 android:textDirection="rtl"
@@ -47,6 +49,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <EditText
+                android:drawableRight="@drawable/ic_baseline_security_24"
+                android:drawablePadding="10dp"
                 android:id="@+id/passwordLogin"
                 android:text="@={login.password}"
                 android:layoutDirection="rtl"

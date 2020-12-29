@@ -1,5 +1,6 @@
 package com.scanner.demo.WebService;
 
+import com.scanner.demo.mainApp.homePage.model.ReceiveLetterRoot;
 import com.scanner.demo.loginPage.model.LoginModelBody;
 import com.scanner.demo.loginPage.model.LoginModelResponseRoot;
 
@@ -25,7 +26,7 @@ public class APIClient  {
             public Response intercept(Chain chain) throws IOException {
                 Request newRequest  = chain.request().newBuilder()
 
-                        .addHeader("Authorization", " Bearer " + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZGVudGlmaWVyIjoiZGZkNmE1ZGYtYmIxZC00ZWE2LTk2NmMtNDllMWY0YjY4MTgyIiwiVXNlck5hbWUiOiJkZXYiLCJGdWxsTmFtZSI6ItmI2K3bjNivINmG2KzZgduMIiwiUmFuayI6Itio2LHZhtin2YXZhyDZhtmI24zYsyIsIkNsYWltcyI6Ild5ZE9iM1JGWkdsMFlXSnNaU2NzSjBaMWJHeEJZMk5sYzNNblhRPT0iLCJSb2xlcyI6IiIsImV4cCI6MTYwOTI1ODMzMH0.hRNJWY7u-0tE7cV93nSWAglOWhinODnXqFL9R4qMJ2Y")
+                        .addHeader("Authorization", " Bearer " + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqYXZhZCIsImp0aSI6Ijk1OTBjODNiLWJkMTEtNDRlMi1hMWJkLWFkOGUyZTgxOTYzOCIsInVuaXF1ZV9uYW1lIjoiamF2YWQiLCJpZCI6IjJiMzI0NWMxLWViNjktNGFkZS04NDZiLTg3OTNjYWIwMTEwZiIsIm5iZiI6MTYwOTE3MTExOSwiZXhwIjoxNjExMjQ0NzE5LCJpYXQiOjE2MDkxNzExMTl9.fYEMTAfQGiflYZ67Ua535aqU8nvwYNIo9RC-Ne3IBdQ")
                         .build();
                 return chain.proceed(newRequest);
             }
@@ -45,6 +46,14 @@ public class APIClient  {
     }
     public Single<LoginModelResponseRoot> LOGIN(LoginModelBody loginModelBody){
         return apiInterface.login(loginModelBody);
+    }
+
+    public Single<ReceiveLetterRoot> RECEIVE_LETTER(String searchValueTitle,
+                                                    String searchSenderName,
+                                                    String urgent,
+                                                    String fromDate,
+                                                    String toDate){
+        return apiInterface.getReceive(searchValueTitle,searchSenderName,urgent,fromDate,toDate,null,1,20);
     }
 
 }

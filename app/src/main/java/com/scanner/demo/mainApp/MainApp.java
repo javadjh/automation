@@ -1,4 +1,4 @@
-package com.scanner.demo.MainApp;
+package com.scanner.demo.mainApp;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;

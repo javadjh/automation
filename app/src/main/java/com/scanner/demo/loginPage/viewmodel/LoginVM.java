@@ -2,21 +2,15 @@ package com.scanner.demo.loginPage.viewmodel;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
-import androidx.databinding.BindingAdapter;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.Observer;
 
 import com.scanner.demo.BR;
 import com.scanner.demo.CustomClass.AlertDialog;
-import com.scanner.demo.MainApp.MainApp;
+import com.scanner.demo.mainApp.MainApp;
 import com.scanner.demo.WebService.AccountService.account;
 import com.scanner.demo.loginPage.model.LoginModelResponseRoot;
 

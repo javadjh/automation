@@ -9,5 +9,60 @@
         android:id="@+id/homePageFragment"
         android:name="com.scanner.demo.mainApp.homePage.view.HomePageFragment"
         android:label="fragment_home_page"
-        tools:layout="@layout/fragment_home_page" />
+        tools:layout="@layout/fragment_home_page" >
+        <action
+            android:id="@+id/action_homePageFragment_to_archiveFragment"
+            app:destination="@id/archiveFragment" />
+        <action
+            android:id="@+id/action_homePageFragment_to_fileManegerFragment"
+            app:destination="@id/fileManegerFragment" />
+        <action
+            android:id="@+id/action_homePageFragment_to_kartableFragment"
+            app:destination="@id/kartableFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/archiveFragment"
+        android:name="com.scanner.demo.mainApp.archive.view.ArchiveFragment"
+        android:label="fragment_archive"
+        tools:layout="@layout/fragment_archive" >
+        <action
+            android:id="@+id/action_archiveFragment_to_homePageFragment"
+            app:destination="@id/homePageFragment" />
+        <action
+            android:id="@+id/action_archiveFragment_to_kartableFragment"
+            app:destination="@id/kartableFragment" />
+        <action
+            android:id="@+id/action_archiveFragment_to_fileManegerFragment"
+            app:destination="@id/fileManegerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/fileManegerFragment"
+        android:name="com.scanner.demo.mainApp.fileManager.view.FileManegerFragment"
+        android:label="fragment_file_maneger"
+        tools:layout="@layout/fragment_file_maneger" >
+        <action
+            android:id="@+id/action_fileManegerFragment_to_homePageFragment"
+            app:destination="@id/homePageFragment" />
+        <action
+            android:id="@+id/action_fileManegerFragment_to_kartableFragment"
+            app:destination="@id/kartableFragment" />
+        <action
+            android:id="@+id/action_fileManegerFragment_to_archiveFragment"
+            app:destination="@id/archiveFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/kartableFragment"
+        android:name="com.scanner.demo.mainApp.kartable.view.KartableFragment"
+        android:label="fragment_kartable"
+        tools:layout="@layout/fragment_kartable" >
+        <action
+            android:id="@+id/action_kartableFragment_to_homePageFragment"
+            app:destination="@id/homePageFragment" />
+        <action
+            android:id="@+id/action_kartableFragment_to_fileManegerFragment"
+            app:destination="@id/fileManegerFragment" />
+        <action
+            android:id="@+id/action_kartableFragment_to_archiveFragment"
+            app:destination="@id/archiveFragment" />
+    </fragment>
 </navigation>

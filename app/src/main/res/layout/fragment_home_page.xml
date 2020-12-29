@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".mainApp.homePage.view.HomePageFragment">
     <data>
         <variable
             name="ReceiveLetterVM"
@@ -7,11 +11,8 @@
     </data>
     <FrameLayout
         android:background="@color/black"
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".mainApp.homePage.view.HomePageFragment">
+        android:layout_height="match_parent">
         <RelativeLayout
             android:layoutDirection="rtl"
             android:textDirection="rtl"
@@ -157,24 +158,28 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
                         <ImageView
+                            android:id="@+id/fileManagerIcon"
                             android:src="@drawable/ic_folder"
                             android:layout_weight="25"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             app:tint="@color/white" />
                         <ImageView
-                            android:src="@drawable/ic_folder"
+                            android:id="@+id/archiveIcon"
+                            android:src="@drawable/ic_folderd"
                             android:layout_weight="25"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             app:tint="@color/white" />
                         <ImageView
+                            android:id="@+id/kartableIcon"
                             android:src="@drawable/ic_email_envelope"
                             android:layout_weight="25"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             app:tint="@color/white" />
                         <ImageView
+                            android:id="@+id/homePageIcon"
                             android:src="@drawable/ic_home"
                             android:layout_weight="25"
                             android:layout_width="0dp"

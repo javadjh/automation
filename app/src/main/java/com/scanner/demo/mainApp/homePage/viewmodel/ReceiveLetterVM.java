@@ -4,11 +4,17 @@ import android.content.Context;
 
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
+import androidx.databinding.BindingAdapter;
 import androidx.lifecycle.MutableLiveData;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.scanner.demo.BR;
+import com.scanner.demo.mainApp.homePage.adapter.ReceiveLetterCustomAdapter;
+import com.scanner.demo.mainApp.homePage.model.ListLetter;
 import com.scanner.demo.mainApp.homePage.model.ReceiveLetterRoot;
 import com.scanner.demo.WebService.Letter.receivedService;
+
+import java.util.List;
 
 public class ReceiveLetterVM extends BaseObservable {
     private com.scanner.demo.mainApp.homePage.model.data data;
@@ -28,16 +34,12 @@ public class ReceiveLetterVM extends BaseObservable {
 
     //setPageData
     public void getReceivedLetter(){
-
         receivedService receivedService = new receivedService();
         receiveLetterRootMutableLiveData = receivedService.getReceivedLetter(null,null,null,null,null,null,1,100);
         notifyPropertyChanged(BR.data);
     }
 
     //getter and setter
-
-
-
 
     public MutableLiveData<ReceiveLetterRoot> getReceiveLetterRootMutableLiveData() {
         return receiveLetterRootMutableLiveData;

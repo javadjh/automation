@@ -31,7 +31,6 @@ public class HomePageFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         fragmentHomePageBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_home_page,container,false);
-        getFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
         return fragmentHomePageBinding.getRoot();
     }
 
@@ -45,9 +44,6 @@ public class HomePageFragment extends Fragment {
             @Override
             public void onChanged(ReceiveLetterRoot receiveLetterRoot) {
                 receiveLetterVM.setData(receiveLetterRoot.getData());
-                receiveLetterVM.setMessage(receiveLetterRoot.getMessage());
-                fragmentHomePageBinding.setReceiveLetterVM(receiveLetterVM);
-                Toast.makeText(getContext(), receiveLetterRoot.getData().getTotalResults() + "", Toast.LENGTH_SHORT).show();
                 fragmentHomePageBinding.setReceiveLetterVM(receiveLetterVM);
                 fragmentHomePageBinding.recyReceiveLetter.setAdapter(new ReceiveLetterCustomAdapter(receiveLetterRoot.getData().getList(),getContext()));
             }

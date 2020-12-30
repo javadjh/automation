@@ -25,7 +25,6 @@ public class KartableFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         fragmentKartableBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_kartable,container,false);
-        getFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
         return fragmentKartableBinding.getRoot();
     }
 

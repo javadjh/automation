@@ -120,6 +120,7 @@
                         android:layout_height="1dp"/>
                 </LinearLayout>
                 <androidx.recyclerview.widget.RecyclerView
+                    android:paddingBottom="80dp"
                     android:overScrollMode="never"
                     android:clipChildren="false"
                     android:clipToPadding="false"

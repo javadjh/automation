@@ -25,7 +25,6 @@ public class FileManegerFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         fragmentFileManegerBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_file_maneger,container,false);
-        getFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
         return fragmentFileManegerBinding.getRoot();
     }
 

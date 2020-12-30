@@ -1,6 +1,7 @@
 package com.scanner.demo.mainApp.homePage.viewmodel;
 
 import android.content.Context;
+import android.util.Log;
 
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
@@ -34,8 +35,10 @@ public class ReceiveLetterVM extends BaseObservable {
 
     //setPageData
     public void getReceivedLetter(){
-        receivedService receivedService = new receivedService();
-        receiveLetterRootMutableLiveData = receivedService.getReceivedLetter(null,null,null,null,null,null,1,100);
+        receivedService receivedService = new receivedService(context);
+        if(receiveLetterRootMutableLiveData==null) {
+            receiveLetterRootMutableLiveData = receivedService.getReceivedLetter(null, null, null, null, null, null, 1, 100);
+        }
         notifyPropertyChanged(BR.data);
     }
 

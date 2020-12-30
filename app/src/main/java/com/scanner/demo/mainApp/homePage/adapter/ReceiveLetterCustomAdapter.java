@@ -6,11 +6,17 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
+import androidx.navigation.NavDirections;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.scanner.demo.R;
 import com.scanner.demo.databinding.ItemLetterBinding;
 import com.scanner.demo.mainApp.homePage.model.ListLetter;
+import com.scanner.demo.mainApp.homePage.view.HomePageFragmentDirections;
+
+import org.sufficientlysecure.htmltextview.HtmlAssetsImageGetter;
+import org.sufficientlysecure.htmltextview.HtmlResImageGetter;
 
 import java.util.List;
 
@@ -34,6 +40,16 @@ public class ReceiveLetterCustomAdapter extends RecyclerView.Adapter<ReceiveLett
     @Override
     public void onBindViewHolder(@NonNull viewHolderReceiveLetter holder, int position) {
         holder.itemLetterBinding.setListReceiveLetter(listReceive.get(position));
+        holder.itemLetterBinding.contextLetter.setHtml(listReceive.get(position).getContent());
+        if(listReceive.get(position).isObservationStatus()){
+            holder.itemLetterBinding.cardLetter.setCardBackgroundColor(context.getResources().getColor(R.color.lightBlack));
+        }else{
+            holder.itemLetterBinding.cardLetter.setCardBackgroundColor(context.getResources().getColor(R.color.purple));
+        }
+        holder.itemLetterBinding.cardLetter.setOnClickListener(View -> {
+            NavDirections navDirections = HomePageFragmentDirections.actionHomePageFragmentToLetterSingleFragment();
+            Navigation.findNavController(holder.itemLetterBinding.cardLetter).navigate(navDirections);
+        });
     }
 
     @Override

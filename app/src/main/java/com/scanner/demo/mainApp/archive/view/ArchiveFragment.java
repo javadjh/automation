@@ -24,7 +24,6 @@ public class ArchiveFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         fragmentArchiveBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_archive,container,false);
-        getFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
         return fragmentArchiveBinding.getRoot();
     }
 

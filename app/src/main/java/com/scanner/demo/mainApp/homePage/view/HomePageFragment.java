@@ -19,6 +19,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.scanner.demo.mainApp.homePage.adapter.ReceiveLetterCustomAdapter;
+import com.scanner.demo.mainApp.homePage.clickEvent.onClickLetterListener;
 import com.scanner.demo.mainApp.homePage.model.ReceiveLetterRoot;
 import com.scanner.demo.mainApp.homePage.viewmodel.ReceiveLetterVM;
 import com.scanner.demo.R;
@@ -45,7 +46,16 @@ public class HomePageFragment extends Fragment {
             public void onChanged(ReceiveLetterRoot receiveLetterRoot) {
                 receiveLetterVM.setData(receiveLetterRoot.getData());
                 fragmentHomePageBinding.setReceiveLetterVM(receiveLetterVM);
-                fragmentHomePageBinding.recyReceiveLetter.setAdapter(new ReceiveLetterCustomAdapter(receiveLetterRoot.getData().getList(),getContext()));
+                fragmentHomePageBinding.recyReceiveLetter.setAdapter(new ReceiveLetterCustomAdapter(receiveLetterRoot.getData().getList(), getContext(),
+                        new onClickLetterListener() {
+                            @Override
+                            public void onClickLetterListenetAdapter(String letterId) {
+                                NavDirections navDirections = HomePageFragmentDirections.actionHomePageFragmentToLetterSingleFragment();
+                                Bundle bundle = new Bundle();
+                                bundle.putString("id",letterId);
+                                Navigation.findNavController(fragmentHomePageBinding.recyReceiveLetter).navigate(R.id.action_homePageFragment_to_letterSingleFragment,bundle);
+                            }
+                        }));
             }
         });
         fragmentHomePageBinding.archiveIcon.setOnClickListener(View ->{

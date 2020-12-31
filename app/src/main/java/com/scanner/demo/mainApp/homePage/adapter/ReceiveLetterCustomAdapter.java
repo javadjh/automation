@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.scanner.demo.R;
 import com.scanner.demo.databinding.ItemLetterBinding;
+import com.scanner.demo.mainApp.homePage.clickEvent.onClickLetterListener;
 import com.scanner.demo.mainApp.homePage.model.ListLetter;
 import com.scanner.demo.mainApp.homePage.view.HomePageFragmentDirections;
 
@@ -23,10 +24,12 @@ import java.util.List;
 public class ReceiveLetterCustomAdapter extends RecyclerView.Adapter<ReceiveLetterCustomAdapter.viewHolderReceiveLetter> {
     List<ListLetter> listReceive ;
     Context context;
+    onClickLetterListener onClickLetterListener;
 
-    public ReceiveLetterCustomAdapter(java.util.List listReceive, Context context) {
+    public ReceiveLetterCustomAdapter(List<ListLetter> listReceive, Context context, com.scanner.demo.mainApp.homePage.clickEvent.onClickLetterListener onClickLetterListener) {
         this.listReceive = listReceive;
         this.context = context;
+        this.onClickLetterListener = onClickLetterListener;
     }
 
     @NonNull
@@ -47,8 +50,7 @@ public class ReceiveLetterCustomAdapter extends RecyclerView.Adapter<ReceiveLett
             holder.itemLetterBinding.cardLetter.setCardBackgroundColor(context.getResources().getColor(R.color.purple));
         }
         holder.itemLetterBinding.cardLetter.setOnClickListener(View -> {
-            NavDirections navDirections = HomePageFragmentDirections.actionHomePageFragmentToLetterSingleFragment();
-            Navigation.findNavController(holder.itemLetterBinding.cardLetter).navigate(navDirections);
+            onClickLetterListener.onClickLetterListenetAdapter(listReceive.get(position).getActionId());
         });
     }
 

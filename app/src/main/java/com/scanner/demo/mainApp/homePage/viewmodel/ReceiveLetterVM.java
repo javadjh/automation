@@ -36,9 +36,7 @@ public class ReceiveLetterVM extends BaseObservable {
     //setPageData
     public void getReceivedLetter(){
         receivedService receivedService = new receivedService(context);
-        if(receiveLetterRootMutableLiveData==null) {
-            receiveLetterRootMutableLiveData = receivedService.getReceivedLetter(null, null, null, null, null, null, 1, 100);
-        }
+        receiveLetterRootMutableLiveData = receivedService.getReceivedLetter(null, null, null, null, null, null, 1, 100);
         notifyPropertyChanged(BR.data);
     }
 

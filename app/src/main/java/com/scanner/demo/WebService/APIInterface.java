@@ -22,4 +22,7 @@ public interface APIInterface {
 
     @GET("/api/v2/letter/{id}")
     Single<LetterSingleRoot> getLetterSingle(@Path("id") String id);
+
+    @GET("/api/v2/letter/sent")
+    Single<ReceiveLetterRoot> getSend(@Query("Title") String Title, @Query("ReceiverName") String ReceiverName, @Query("Urgency") String Urgency, @Query("From") String From, @Query("To") String To, @Query("PageNumber") Integer PageNumber, @Query("PageSize") Integer PageSize);
 }

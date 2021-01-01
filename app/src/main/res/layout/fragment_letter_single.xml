@@ -10,6 +10,8 @@
             type="com.scanner.demo.mainApp.letterSingle.viewmodel.LetterSinleVM" />
     </data>
     <FrameLayout
+        android:layoutDirection="rtl"
+        android:textDirection="rtl"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <RelativeLayout
@@ -18,8 +20,13 @@
             android:background="@color/black"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <androidx.core.widget.NestedScrollView
 
+            <androidx.core.widget.NestedScrollView
+                android:layoutDirection="rtl"
+                android:textDirection="rtl"
+                android:clipChildren="false"
+                android:clipToPadding="false"
+                android:paddingTop="50dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -54,6 +61,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent">
                                 <ImageView
+                                    android:id="@+id/test"
                                     android:layout_marginEnd="5dp"
                                     android:layout_marginStart="5dp"
                                     android:src="@drawable/ic_checked"
@@ -383,6 +391,14 @@
                         android:layout_height="wrap_content"/>
                 </LinearLayout>
             </androidx.core.widget.NestedScrollView>
+
+            <ImageView
+                android:id="@+id/closeLetterSingle"
+                android:padding="5dp"
+                android:src="@drawable/ic_baseline_close_24"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                app:tint="@color/white" />
         </RelativeLayout>
     </FrameLayout>
 </layout>

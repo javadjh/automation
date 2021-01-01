@@ -115,14 +115,26 @@
             app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_kartableFragment_to_letterSingleFragment"
-            app:destination="@id/letterSingleFragment"
-            app:launchSingleTop="true"
-            app:popUpTo="@id/letterSingleFragment"
-            app:popUpToInclusive="true" />
+            app:destination="@id/letterSingleFragment" />
     </fragment>
     <fragment
         android:id="@+id/letterSingleFragment"
         android:name="com.scanner.demo.mainApp.letterSingle.view.LetterSingleFragment"
         android:label="fragment_letter_single"
-        tools:layout="@layout/fragment_letter_single" />
+        tools:layout="@layout/fragment_letter_single" >
+        <action
+            android:id="@+id/action_letterSingleFragment_to_kartableFragment"
+            app:destination="@id/kartableFragment" />
+        <action
+            android:id="@+id/action_letterSingleFragment_to_homePageFragment2"
+            app:destination="@id/homePageFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/homePageFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/receiveKartableFragment"
+        android:name="com.scanner.demo.mainApp.kartable.view.ReceiveKartableFragment"
+        android:label="fragment_receive_kartable"
+        tools:layout="@layout/fragment_receive_kartable" />
 </navigation>

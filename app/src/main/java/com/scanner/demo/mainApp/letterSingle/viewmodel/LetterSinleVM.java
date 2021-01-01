@@ -7,13 +7,9 @@ import androidx.databinding.Bindable;
 import androidx.lifecycle.MutableLiveData;
 
 import com.scanner.demo.BR;
-import com.scanner.demo.WebService.Letter.receivedService;
-import com.scanner.demo.mainApp.homePage.model.ListLetter;
-import com.scanner.demo.mainApp.homePage.model.ReceiveLetterRoot;
+import com.scanner.demo.WebService.Letter.letterService;
 import com.scanner.demo.mainApp.letterSingle.model.LetterSingleRoot;
 import com.scanner.demo.mainApp.letterSingle.model.data;
-
-import java.util.List;
 
 public class LetterSinleVM extends BaseObservable {
     //base variable
@@ -36,8 +32,8 @@ public class LetterSinleVM extends BaseObservable {
 
 
     private void getSinlgeData() {
-        receivedService receivedService = new receivedService(context);
-        singleRootMutableLiveData = receivedService.getSingleLetter(letterId);
+        letterService letterService = new letterService(context);
+        singleRootMutableLiveData = letterService.getSingleLetter(letterId);
         notifyPropertyChanged(BR.singleRootMutableLiveData);
     }
 

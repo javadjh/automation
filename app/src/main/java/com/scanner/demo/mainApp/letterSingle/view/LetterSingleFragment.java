@@ -9,6 +9,8 @@ import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
+import androidx.navigation.NavDirections;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,10 +19,13 @@ import android.widget.Toast;
 
 import com.scanner.demo.R;
 import com.scanner.demo.databinding.FragmentLetterSingleBinding;
+import com.scanner.demo.mainApp.homePage.view.HomePageFragmentDirections;
 import com.scanner.demo.mainApp.letterSingle.adapter.AppendixCustomAdapter;
 import com.scanner.demo.mainApp.letterSingle.adapter.CopiesCustomAdapter;
 import com.scanner.demo.mainApp.letterSingle.model.LetterSingleRoot;
 import com.scanner.demo.mainApp.letterSingle.viewmodel.LetterSinleVM;
+
+import java.util.Objects;
 
 public class LetterSingleFragment extends Fragment {
     FragmentLetterSingleBinding fragmentLetterSingleBinding;
@@ -36,19 +41,42 @@ public class LetterSingleFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        closePage();
         letterId = getArguments().getString("id");
+        getPageData();
+    }
+
+    private void getPageData() {
         letterSinleVM = new LetterSinleVM(getContext(),letterId);
         MutableLiveData<LetterSingleRoot> mutableLiveData = letterSinleVM.getSingleRootMutableLiveData();
         mutableLiveData.observe(getActivity(), new Observer<LetterSingleRoot>() {
             @Override
             public void onChanged(LetterSingleRoot letterSingleRoot) {
-                Toast.makeText(getContext(), letterSingleRoot.getData().getId(), Toast.LENGTH_SHORT).show();
                 letterSinleVM.setData(letterSingleRoot.getData());
                 fragmentLetterSingleBinding.setLetterSinleVM(letterSinleVM);
                 fragmentLetterSingleBinding.letterContent.setHtml(letterSingleRoot.getData().getContent());
                 //set Adapter
                 fragmentLetterSingleBinding.recyCopies.setAdapter(new CopiesCustomAdapter(getContext(),letterSingleRoot.getData().getCopies()));
                 fragmentLetterSingleBinding.recyAppendix.setAdapter(new AppendixCustomAdapter(getContext(),letterSingleRoot.getData().getAppendixes()));
+            }
+        });
+    }
+
+    private void closePage() {
+        fragmentLetterSingleBinding.closeLetterSingle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NavDirections navDirections = null;
+                switch (Objects.requireNonNull(requireArguments().getString("key"))){
+                    case "home":
+                        navDirections = LetterSingleFragmentDirections.actionLetterSingleFragmentToHomePageFragment2();
+                        break;
+                    case "kartable":
+                        navDirections = LetterSingleFragmentDirections.actionLetterSingleFragmentToKartableFragment();
+                        break;
+                }
+                assert navDirections != null;
+                Navigation.findNavController(fragmentLetterSingleBinding.closeLetterSingle).navigate(navDirections);
             }
         });
     }

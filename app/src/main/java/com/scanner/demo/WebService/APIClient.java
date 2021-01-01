@@ -49,10 +49,13 @@ public class APIClient  {
         return apiInterface.login(loginModelBody);
     }
     public Single<ReceiveLetterRoot> RECEIVE_LETTER(String searchValueTitle, String searchSenderName, String urgent, String fromDate, String toDate){
-        return apiInterface.getReceive(searchValueTitle,searchSenderName,urgent,fromDate,toDate,null,1,20);
+        return apiInterface.getReceive(searchValueTitle,searchSenderName,urgent,fromDate,toDate,null,1,50);
     }
     public Single<LetterSingleRoot> LETTER_SINGLE(String id){
         return apiInterface.getLetterSingle(id);
+    }
+    public Single<ReceiveLetterRoot> SEND_LETTER(String searchValueTitle, String searchReceiverName, String urgent, String fromDate, String toDate){
+        return apiInterface.getSend(searchValueTitle,searchReceiverName,urgent,fromDate,toDate,1,50);
     }
 
 }

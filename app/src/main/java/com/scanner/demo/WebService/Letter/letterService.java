@@ -17,19 +17,22 @@ import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.observers.DisposableSingleObserver;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
-public class receivedService extends ViewModel {
+public class letterService extends ViewModel {
     private CompositeDisposable compositeDisposable = new CompositeDisposable();
     //getReceive
     private MutableLiveData<ReceiveLetterRoot> receiveLetterRootMutableLiveData = new MutableLiveData<>();
     //getSingle
     private MutableLiveData<LetterSingleRoot> singleRootMutableLiveData  = new MutableLiveData<>();
+    //getSend
+    private MutableLiveData<ReceiveLetterRoot> sendMutableLiveData  = new MutableLiveData<>();
     APIClient apiClient;
     Context context;
 
-    public receivedService(Context context) {
+    public letterService(Context context) {
         this.context = context;
     }
 
+    //getReceivedLetter Service
     public MutableLiveData<ReceiveLetterRoot> getReceivedLetter(String Title, String SenderName, String Urgency, String From, String To, Boolean NotObserved, Integer PageNumber, Integer PageSize){
         apiClient = new APIClient();
         compositeDisposable.add(apiClient.RECEIVE_LETTER(Title, SenderName, Urgency, From, To)
@@ -52,6 +55,7 @@ public class receivedService extends ViewModel {
         return receiveLetterRootMutableLiveData;
     }
 
+    //getSingleLetter Service
     public MutableLiveData<LetterSingleRoot> getSingleLetter(String id){
         apiClient = new APIClient();
         compositeDisposable.add(apiClient.LETTER_SINGLE(id)
@@ -72,6 +76,29 @@ public class receivedService extends ViewModel {
             }
         }));
         return singleRootMutableLiveData;
+    }
+
+    //getSendLetter Service
+    public MutableLiveData<ReceiveLetterRoot> getSendLetter(String Title, String ReceiverName, String Urgency, String From, String To, Integer PageNumber, Integer PageSize){
+        apiClient = new APIClient();
+        compositeDisposable.add(apiClient.SEND_LETTER(Title, ReceiverName, Urgency, From, To)
+                .subscribeOn(Schedulers.newThread())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeWith(new DisposableSingleObserver<ReceiveLetterRoot>() {
+                    @Override
+                    public void onSuccess(@NonNull ReceiveLetterRoot receiveLetterRoot) {
+                        if (sendMutableLiveData.getValue() == null) {
+                            sendMutableLiveData.postValue(receiveLetterRoot);
+                            Log.i("rrrr", receiveLetterRoot.getData().getList().size() + "");
+                        }
+                    }
+
+                    @Override
+                    public void onError(@NonNull Throwable e) {
+                        AlertDialog.showAlertDialog(context,"خطا در دریافت اطلاعات","خطا در دریافت اطلاعات از سرور رخ داده است لطفا اتصالات خود را بررسی نمایید");
+                    }
+                }));
+        return sendMutableLiveData;
     }
 
     @Override

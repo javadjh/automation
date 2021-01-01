@@ -31,6 +31,7 @@ public class ArchiveFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         getActivity().getFragmentManager().popBackStack();
+
         fragmentArchiveBinding.fileManagerIcon.setOnClickListener(View->{
             NavDirections navDirections = ArchiveFragmentDirections.actionArchiveFragmentToFileManegerFragment();
             Navigation.findNavController(fragmentArchiveBinding.fileManagerIcon).navigate(navDirections);

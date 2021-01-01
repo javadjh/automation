@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_navigation"
@@ -12,16 +13,28 @@
         tools:layout="@layout/fragment_home_page" >
         <action
             android:id="@+id/action_homePageFragment_to_archiveFragment"
-            app:destination="@id/archiveFragment" />
+            app:destination="@id/archiveFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/archiveFragment"
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_homePageFragment_to_fileManegerFragment"
-            app:destination="@id/fileManegerFragment" />
+            app:destination="@id/fileManegerFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/fileManegerFragment"
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_homePageFragment_to_kartableFragment"
-            app:destination="@id/kartableFragment" />
+            app:destination="@id/kartableFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/kartableFragment"
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_homePageFragment_to_letterSingleFragment"
-            app:destination="@id/letterSingleFragment" />
+            app:destination="@id/letterSingleFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/letterSingleFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/archiveFragment"
@@ -30,16 +43,28 @@
         tools:layout="@layout/fragment_archive" >
         <action
             android:id="@+id/action_archiveFragment_to_homePageFragment"
-            app:destination="@id/homePageFragment" />
+            app:destination="@id/homePageFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/homePageFragment"
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_archiveFragment_to_kartableFragment"
-            app:destination="@id/kartableFragment" />
+            app:destination="@id/kartableFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/kartableFragment"
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_archiveFragment_to_fileManegerFragment"
-            app:destination="@id/fileManegerFragment" />
+            app:destination="@id/fileManegerFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/fileManegerFragment"
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_archiveFragment_to_letterSingleFragment"
-            app:destination="@id/letterSingleFragment" />
+            app:destination="@id/letterSingleFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/letterSingleFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/fileManegerFragment"
@@ -48,13 +73,22 @@
         tools:layout="@layout/fragment_file_maneger" >
         <action
             android:id="@+id/action_fileManegerFragment_to_homePageFragment"
-            app:destination="@id/homePageFragment" />
+            app:destination="@id/homePageFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/homePageFragment"
+            app:popUpToInclusive="false" />
         <action
             android:id="@+id/action_fileManegerFragment_to_kartableFragment"
-            app:destination="@id/kartableFragment" />
+            app:destination="@id/kartableFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/kartableFragment"
+            app:popUpToInclusive="false" />
         <action
             android:id="@+id/action_fileManegerFragment_to_archiveFragment"
-            app:destination="@id/archiveFragment" />
+            app:destination="@id/archiveFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/archiveFragment"
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/kartableFragment"
@@ -63,16 +97,28 @@
         tools:layout="@layout/fragment_kartable" >
         <action
             android:id="@+id/action_kartableFragment_to_homePageFragment"
-            app:destination="@id/homePageFragment" />
+            app:destination="@id/homePageFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/homePageFragment"
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_kartableFragment_to_fileManegerFragment"
-            app:destination="@id/fileManegerFragment" />
+            app:destination="@id/fileManegerFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/fileManegerFragment"
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_kartableFragment_to_archiveFragment"
-            app:destination="@id/archiveFragment" />
+            app:destination="@id/archiveFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/archiveFragment"
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_kartableFragment_to_letterSingleFragment"
-            app:destination="@id/letterSingleFragment" />
+            app:destination="@id/letterSingleFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/letterSingleFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/letterSingleFragment"

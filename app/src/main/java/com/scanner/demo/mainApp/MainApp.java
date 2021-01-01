@@ -7,6 +7,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.appbar.MaterialToolbar;
@@ -22,5 +23,23 @@ public class MainApp extends AppCompatActivity {
         mainAppBinding = DataBindingUtil.setContentView(this,R.layout.activity_main_app);
         navController = Navigation.findNavController(this,R.id.fragment);
         NavigationUI.setupWithNavController(new CollapsingToolbarLayout(this),new MaterialToolbar(this),navController);
+
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        return super.onSupportNavigateUp();
+    }
+
+    @Override
+    public void onBackPressed() {
+        if(navController.getCurrentDestination().getId()==R.id.letterSingleFragment){
+            super.onBackPressed();
+        }else{
+            finish();
+            finish();
+            finish();
+            finish();
+        }
     }
 }

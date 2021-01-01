@@ -14,10 +14,13 @@
             type="androidx.fragment.app.FragmentManager" />
     </data>
     <FrameLayout
-
+        android:textDirection="ltr"
+        android:layoutDirection="ltr"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <RelativeLayout
+            android:layoutDirection="ltr"
             android:background="@color/black"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -44,6 +47,7 @@
                 <androidx.cardview.widget.CardView
                     app:cardElevation="@dimen/cardElevation"
                     app:cardCornerRadius="@dimen/radius"
+                    android:id="@+id/appMenu"
                     android:layout_marginEnd="20dp"
                     android:layout_marginStart="20dp"
                     app:cardBackgroundColor="@color/lightBlack"
@@ -91,6 +95,19 @@
                             app:tint="@color/white" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:layout_width="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:layoutDirection="rtl"
+                    android:layout_alignParentLeft="true"
+                    android:textDirection="rtl"
+                    android:tint="@color/black"
+                    android:layout_above="@id/appMenu"
+                    android:src="@drawable/ic_baseline_add_24"
+                    app:backgroundTint="@color/purple"
+                    android:layout_height="wrap_content"/>
             </RelativeLayout>
         </RelativeLayout>
 

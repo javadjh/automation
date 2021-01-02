@@ -15,5 +15,8 @@
     <string name="ok">باشه</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="nextStep">مرحله بعدی</string>
+    <string name="etterTitle">عنوان نامه را وارد کنید</string>
+    <string name="enterText">متن نامه را در این قسمت وارد نمایید</string>
 
 </resources>

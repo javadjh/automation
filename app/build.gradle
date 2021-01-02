@@ -6,6 +6,7 @@ android {
     buildToolsVersion "30.0.2"
 
     defaultConfig {
+        multiDexEnabled true
         applicationId "com.scanner.demo"
         minSdkVersion 19
         targetSdkVersion 30
@@ -56,4 +57,8 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'de.hdodenhof:circleimageview:3.1.0'
     implementation 'org.sufficientlysecure:html-textview:3.9'
+
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    implementation 'com.github.chinalwb:are:0.1.7'
+    implementation 'com.android.support:multidex:1.0.3'
 }

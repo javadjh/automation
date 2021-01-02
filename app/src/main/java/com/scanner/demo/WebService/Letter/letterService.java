@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModel;
 import com.scanner.demo.CustomClass.AlertDialog;
 import com.scanner.demo.mainApp.homePage.model.ReceiveLetterRoot;
 import com.scanner.demo.WebService.APIClient;
+import com.scanner.demo.mainApp.kartable.model.DraftResponseRoot;
 import com.scanner.demo.mainApp.letterSingle.model.LetterSingleRoot;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
@@ -25,6 +26,8 @@ public class letterService extends ViewModel {
     private MutableLiveData<LetterSingleRoot> singleRootMutableLiveData  = new MutableLiveData<>();
     //getSend
     private MutableLiveData<ReceiveLetterRoot> sendMutableLiveData  = new MutableLiveData<>();
+    //getDraft
+    private MutableLiveData<DraftResponseRoot> draftResponseRootMutableLiveData = new MutableLiveData<>();
     APIClient apiClient;
     Context context;
 
@@ -99,6 +102,27 @@ public class letterService extends ViewModel {
                     }
                 }));
         return sendMutableLiveData;
+    }
+
+    public MutableLiveData<DraftResponseRoot> getDraftLetter(){
+        if(draftResponseRootMutableLiveData.getValue()==null) {
+            apiClient = new APIClient();
+            compositeDisposable.add(apiClient.DRAFT_LETTER()
+                .subscribeOn(Schedulers.newThread())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeWith(new DisposableSingleObserver<DraftResponseRoot>() {
+                    @Override
+                    public void onSuccess(@NonNull DraftResponseRoot draftResponseRoot) {
+                        draftResponseRootMutableLiveData.setValue(draftResponseRoot);
+                    }
+
+                    @Override
+                    public void onError(@NonNull Throwable e) {
+                        AlertDialog.showAlertDialog(context, "خطا در دریافت اطلاعات", "خطا در دریافت اطلاعات از سرور رخ داده است لطفا اتصالات خود را بررسی نمایید");
+                    }
+                }));
+        }
+        return draftResponseRootMutableLiveData;
     }
 
     @Override

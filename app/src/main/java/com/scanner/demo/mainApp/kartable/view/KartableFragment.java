@@ -42,18 +42,33 @@ public class KartableFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         fragmentKartableBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_kartable,container,false);
-        fragmentKartableBinding.setKartableFragment(this);
+        tabBarLayoutInit();
+        return fragmentKartableBinding.getRoot();
+    }
 
+    private void tabBarLayoutInit() {
+        fragmentKartableBinding.setKartableFragment(this);
         fragmentKartableBinding.kartableViewPager.setAdapter(new SliderAdapter(requireActivity().getSupportFragmentManager()));
         fragmentKartableBinding.tabBarActionBar.setupWithViewPager(fragmentKartableBinding.kartableViewPager);
         fragmentKartableBinding.kartableViewPager.setCurrentItem(2);
-        return fragmentKartableBinding.getRoot();
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         getActivity().getFragmentManager().popBackStack();
+        menuSwitcher();
+        setTabLayoutUiSetting();
+        fragmentKartableBinding.addLetter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NavDirections navDirections = KartableFragmentDirections.actionKartableFragmentToUpsertLetterFragment();
+                Navigation.findNavController(fragmentKartableBinding.kartableIcon).navigate(navDirections);
+            }
+        });
+    }
+
+    private void menuSwitcher() {
         fragmentKartableBinding.archiveIcon.setOnClickListener(View ->{
             NavDirections navDirections = KartableFragmentDirections.actionKartableFragmentToArchiveFragment();
             Navigation.findNavController(fragmentKartableBinding.archiveIcon).navigate(navDirections);
@@ -66,7 +81,6 @@ public class KartableFragment extends Fragment {
             NavDirections navDirections = KartableFragmentDirections.actionKartableFragmentToHomePageFragment();
             Navigation.findNavController(fragmentKartableBinding.kartableIcon).navigate(navDirections);
         });
-        setTabLayoutUiSetting();
     }
 
     private void setTabLayoutUiSetting() {

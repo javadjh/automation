@@ -13,6 +13,7 @@ import androidx.viewpager.widget.PagerAdapter;
 import com.scanner.demo.mainApp.archive.view.ArchiveFragment;
 import com.scanner.demo.mainApp.fileManager.view.FileManegerFragment;
 import com.scanner.demo.mainApp.homePage.view.HomePageFragment;
+import com.scanner.demo.mainApp.kartable.view.DraftKartableFragment;
 import com.scanner.demo.mainApp.kartable.view.KartableFragment;
 import com.scanner.demo.mainApp.kartable.view.ReceiveKartableFragment;
 import com.scanner.demo.mainApp.kartable.view.SendKartableFragment;
@@ -31,7 +32,7 @@ public class SliderAdapter extends FragmentStatePagerAdapter {
             case 2:
                 return new SendKartableFragment();
             case 0:
-                return new HomePageFragment();
+                return new DraftKartableFragment();
         }
         return null;
     }

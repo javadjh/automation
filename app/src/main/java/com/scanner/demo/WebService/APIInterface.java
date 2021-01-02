@@ -3,6 +3,7 @@ package com.scanner.demo.WebService;
 import com.scanner.demo.mainApp.homePage.model.ReceiveLetterRoot;
 import com.scanner.demo.loginPage.model.LoginModelBody;
 import com.scanner.demo.loginPage.model.LoginModelResponseRoot;
+import com.scanner.demo.mainApp.kartable.model.DraftResponseRoot;
 import com.scanner.demo.mainApp.letterSingle.model.LetterSingleRoot;
 
 import io.reactivex.rxjava3.core.Single;
@@ -25,4 +26,7 @@ public interface APIInterface {
 
     @GET("/api/v2/letter/sent")
     Single<ReceiveLetterRoot> getSend(@Query("Title") String Title, @Query("ReceiverName") String ReceiverName, @Query("Urgency") String Urgency, @Query("From") String From, @Query("To") String To, @Query("PageNumber") Integer PageNumber, @Query("PageSize") Integer PageSize);
+
+    @GET("/api/v2/letter/draft")
+    Single<DraftResponseRoot> getDraft(@Query("PageNumber") int PageNumber, @Query("PageSize") int PageSize);
 }

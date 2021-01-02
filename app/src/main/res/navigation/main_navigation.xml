@@ -116,6 +116,9 @@
         <action
             android:id="@+id/action_kartableFragment_to_letterSingleFragment"
             app:destination="@id/letterSingleFragment" />
+        <action
+            android:id="@+id/action_kartableFragment_to_upsertLetterFragment"
+            app:destination="@id/upsertLetterFragment" />
     </fragment>
     <fragment
         android:id="@+id/letterSingleFragment"
@@ -133,8 +136,12 @@
             app:popUpToInclusive="false" />
     </fragment>
     <fragment
-        android:id="@+id/receiveKartableFragment"
-        android:name="com.scanner.demo.mainApp.kartable.view.ReceiveKartableFragment"
-        android:label="fragment_receive_kartable"
-        tools:layout="@layout/fragment_receive_kartable" />
+        android:id="@+id/upsertLetterFragment"
+        android:name="com.scanner.demo.mainApp.kartable.upsertLetter.view.UpsertLetterFragment"
+        android:label="fragment_upsert_letter"
+        tools:layout="@layout/fragment_upsert_letter" >
+        <action
+            android:id="@+id/action_upsertLetterFragment_to_kartableFragment"
+            app:destination="@id/kartableFragment" />
+    </fragment>
 </navigation>

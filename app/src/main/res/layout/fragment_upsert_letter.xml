@@ -114,6 +114,7 @@
                 </LinearLayout>
             </LinearLayout>
             <Button
+                android:id="@+id/moveNextStep"
                 android:layout_below="@id/contentBlock"
                 android:layout_centerHorizontal="true"
                 android:text="@string/nextStep"

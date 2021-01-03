@@ -143,5 +143,17 @@
         <action
             android:id="@+id/action_upsertLetterFragment_to_kartableFragment"
             app:destination="@id/kartableFragment" />
+        <action
+            android:id="@+id/action_upsertLetterFragment_to_upsertLetterStepTwoFragment"
+            app:destination="@id/upsertLetterStepTwoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/upsertLetterStepTwoFragment"
+        android:name="com.scanner.demo.mainApp.kartable.upsertLetter.view.UpsertLetterStepTwoFragment"
+        android:label="fragment_upsert_letter_step_two"
+        tools:layout="@layout/fragment_upsert_letter_step_two" >
+        <action
+            android:id="@+id/action_upsertLetterStepTwoFragment_to_upsertLetterFragment"
+            app:destination="@id/upsertLetterFragment" />
     </fragment>
 </navigation>

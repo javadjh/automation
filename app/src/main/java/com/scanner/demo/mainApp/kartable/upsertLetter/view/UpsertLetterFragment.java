@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,14 +34,18 @@ public class UpsertLetterFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         fragmentUpsertLetterBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_upsert_letter,container,false);
+        mToolbar = fragmentUpsertLetterBinding.areToolbar;
+        mEditText = fragmentUpsertLetterBinding.arEditText;
         return fragmentUpsertLetterBinding.getRoot();
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mToolbar = fragmentUpsertLetterBinding.areToolbar;
-        mEditText = fragmentUpsertLetterBinding.arEditText;
+        fragmentUpsertLetterBinding.moveNextStep.setOnClickListener(View -> {
+            Bundle bundle = new Bundle();
+            Navigation.findNavController(fragmentUpsertLetterBinding.moveNextStep).navigate(R.id.action_upsertLetterFragment_to_upsertLetterStepTwoFragment,bundle);
+        });
         initToolbar();
     }
     private void initToolbar() {

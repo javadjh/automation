@@ -18,5 +18,6 @@
     <string name="nextStep">مرحله بعدی</string>
     <string name="etterTitle">عنوان نامه را وارد کنید</string>
     <string name="enterText">متن نامه را در این قسمت وارد نمایید</string>
+    <string name="semat">سمت</string>
 
 </resources>

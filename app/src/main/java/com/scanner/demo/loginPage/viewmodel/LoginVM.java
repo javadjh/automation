@@ -1,5 +1,6 @@
 package com.scanner.demo.loginPage.viewmodel;
 
+
 import android.content.Context;
 import android.content.Intent;
 
@@ -10,15 +11,15 @@ import androidx.lifecycle.Observer;
 
 import com.scanner.demo.BR;
 import com.scanner.demo.CustomClass.AlertDialog;
-import com.scanner.demo.mainApp.MainApp;
 import com.scanner.demo.WebService.AccountService.account;
 import com.scanner.demo.loginPage.model.LoginModelResponseRoot;
+import com.scanner.demo.mainApp.MainApp;
 
 public class LoginVM extends BaseObservable {
     private String username = "";
     private String password = "";
     private Context context;
-    private account account;
+    private com.scanner.demo.WebService.AccountService.account account;
 
     public LoginVM(Context context) {
         this.context = context;

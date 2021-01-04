@@ -14,19 +14,15 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".mainApp.MainApp"
-            android:noHistory="true">
+        <activity android:name=".mainApp.MainApp" android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".loginPage.view.LoginActivity">
-        </activity>
-        <activity
-            android:name=".MainActivity"
-            android:label="@string/app_name"/>
+        <activity android:name=".loginPage.view.LoginActivity"/>
+        <activity android:name=".MainActivity" android:label="@string/app_name"/>
     </application>
 
 </manifest>

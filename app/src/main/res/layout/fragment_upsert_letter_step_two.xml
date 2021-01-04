@@ -30,7 +30,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <TextView
-                        android:textSize="@dimen/mediumSize"
+                        android:textSize="@dimen/titleSize"
                         android:fontFamily="@font/vazir"
                         android:textColor="@color/white"
                         android:text="آخرین نامه های دریافتی"
@@ -44,6 +44,7 @@
                         android:layout_height="1dp"/>
                 </LinearLayout>
                 <TextView
+                    android:textSize="@dimen/mediumSize"
                     android:layout_marginStart="20dp"
                     android:layout_marginEnd="20dp"
                     android:layout_marginTop="20dp"
@@ -65,11 +66,12 @@
                     android:layout_height="wrap_content">
                     <com.jaredrummler.materialspinner.MaterialSpinner
                         android:paddingStart="10dp"
+                        android:fontFamily="@font/vazir"
+                        android:textSize="@dimen/mediumSize"
                         app:ms_hint_color="@color/gray"
                         android:hint="@string/semat"
                         app:ms_hint="@string/semat"
                         android:textColor="@color/white"
-                        android:textSize="18sp"
                         android:textColorHint="@color/white"
                         android:id="@+id/postSpinnerSender"
                         android:layoutDirection="rtl"
@@ -82,6 +84,7 @@
                         android:layout_height="wrap_content"/>
                 </androidx.cardview.widget.CardView>
                 <TextView
+                    android:textSize="@dimen/mediumSize"
                     android:layout_marginStart="20dp"
                     android:layout_marginEnd="20dp"
                     android:layout_marginTop="20dp"
@@ -101,10 +104,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <Button
+                        android:elevation="@dimen/cardElevation"
+                        android:textSize="@dimen/mediumSize"
+                        android:id="@+id/choiseReceiverBtn"
                         android:layout_marginEnd="10dp"
                         android:textColor="@color/white"
                         android:fontFamily="@font/vazir"
-                        android:text="انتخاب گیرنده"
+                        android:text=" گیرنده"
                         android:background="@drawable/style_black_button"
                         android:layout_weight="50"
                         android:layout_width="0dp"
@@ -123,9 +129,10 @@
                             android:paddingStart="10dp"
                             app:ms_hint_color="@color/gray"
                             android:hint="@string/semat"
+                            android:fontFamily="@font/vazir"
                             app:ms_hint="@string/semat"
                             android:textColor="@color/white"
-                            android:textSize="18sp"
+                            android:textSize="@dimen/mediumSize"
                             android:textColorHint="@color/white"
                             android:id="@+id/postSpinnerReceiver"
                             android:layoutDirection="rtl"
@@ -147,19 +154,154 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <TextView
-                        android:textSize="@dimen/mediumSize"
+                        android:layout_gravity="center"
+                        android:textSize="@dimen/titleSize"
                         android:fontFamily="@font/vazir"
                         android:textColor="@color/white"
-                        android:text="آخرین نامه های دریافتی"
+                        android:text="رونوشت"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
-                    <View
-                        android:layout_marginStart="10dp"
-                        android:layout_gravity="center"
-                        android:background="@color/white"
+                    <LinearLayout
+                        android:layoutDirection="rtl"
+                        android:textDirection="rtl"
+                        android:layout_marginEnd="10dp"
+                        android:weightSum="100"
+                        android:orientation="horizontal"
                         android:layout_width="match_parent"
-                        android:layout_height="1dp"/>
+                        android:layout_height="wrap_content">
+                        <View
+                            android:layout_marginStart="10dp"
+                            android:layout_gravity="center"
+                            android:background="@color/white"
+                            android:layout_width="0dp"
+                            android:layout_weight="60"
+                            android:layout_marginEnd="10dp"
+                            android:layout_height="1dp"/>
+                        <Button
+                            android:textSize="@dimen/mediumSize"
+                            android:fontFamily="@font/vazir"
+                            android:text="افزودن"
+                            android:background="@drawable/style_btn_purple"
+                            android:layout_weight="40"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
                 </LinearLayout>
+                <LinearLayout
+                    android:layoutDirection="rtl"
+                    android:textDirection="rtl"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:weightSum="100"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <Button
+                        android:elevation="@dimen/cardElevation"
+                        android:textSize="@dimen/mediumSize"
+                        android:layout_marginEnd="10dp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/vazir"
+                        android:text="انتخاب کاربر"
+                        android:background="@drawable/style_black_button"
+                        android:layout_weight="50"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"/>
+                    <androidx.cardview.widget.CardView
+                        android:textDirection="rtl"
+                        android:layoutDirection="rtl"
+                        app:cardBackgroundColor="@color/lightBlack"
+                        android:layout_marginStart="10dp"
+                        app:cardCornerRadius="@dimen/cardRadius"
+                        app:cardElevation="@dimen/cardElevation"
+                        android:layout_width="0dp"
+                        android:layout_weight="50"
+                        android:layout_height="wrap_content">
+                        <com.jaredrummler.materialspinner.MaterialSpinner
+                            android:paddingStart="10dp"
+                            app:ms_hint_color="@color/gray"
+                            android:hint="@string/for_"
+                            app:ms_hint="@string/for_"
+                            android:fontFamily="@font/vazir"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/mediumSize"
+                            android:textColorHint="@color/white"
+                            android:id="@+id/copiesForWhat"
+                            android:layoutDirection="rtl"
+                            android:textDirection="rtl"
+                            app:ms_text_color="@color/white"
+                            app:ms_arrow_tint="@color/white"
+                            app:ms_background_color="@color/lightBlack"
+                            android:background="@color/lightBlack"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:clipChildren="false"
+                    android:paddingTop="10dp"
+                    android:clipToPadding="false"
+                    android:paddingStart="20dp"
+                    android:layoutDirection="rtl"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:orientation="horizontal"
+                    tools:listitem="@layout/item_copies"
+                    android:textDirection="rtl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <LinearLayout
+                    android:layoutDirection="rtl"
+                    android:textDirection="rtl"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_gravity="center"
+                        android:textSize="@dimen/titleSize"
+                        android:fontFamily="@font/vazir"
+                        android:textColor="@color/white"
+                        android:text="ضمایم"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <LinearLayout
+                        android:layoutDirection="rtl"
+                        android:textDirection="rtl"
+                        android:layout_marginEnd="10dp"
+                        android:weightSum="100"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <View
+                            android:layout_marginStart="10dp"
+                            android:layout_gravity="center"
+                            android:background="@color/white"
+                            android:layout_width="0dp"
+                            android:layout_weight="60"
+                            android:layout_marginEnd="10dp"
+                            android:layout_height="1dp"/>
+                        <Button
+                            android:textSize="@dimen/mediumSize"
+                            android:fontFamily="@font/vazir"
+                            android:text="افزودن"
+                            android:background="@drawable/style_btn_purple"
+                            android:layout_weight="40"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                </LinearLayout>
+                <androidx.recyclerview.widget.RecyclerView
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    tools:listitem="@layout/item_appendix"
+                    android:clipToPadding="false"
+                    android:clipChildren="false"
+                    android:paddingTop="10dp"
+                    android:paddingStart="20dp"
+                    app:spanCount="2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
             </LinearLayout>
         </RelativeLayout>
     </FrameLayout>

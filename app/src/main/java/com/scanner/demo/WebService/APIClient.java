@@ -4,6 +4,7 @@ import com.scanner.demo.mainApp.homePage.model.ReceiveLetterRoot;
 import com.scanner.demo.loginPage.model.LoginModelBody;
 import com.scanner.demo.loginPage.model.LoginModelResponseRoot;
 import com.scanner.demo.mainApp.kartable.model.DraftResponseRoot;
+import com.scanner.demo.mainApp.kartable.upsertLetter.model.usersListRoot;
 import com.scanner.demo.mainApp.letterSingle.model.LetterSingleRoot;
 
 import java.io.IOException;
@@ -60,6 +61,9 @@ public class APIClient  {
     }
     public Single<DraftResponseRoot> DRAFT_LETTER(){
         return apiInterface.getDraft(1,50);
+    }
+    public Single<usersListRoot> GET_USERS(){
+        return apiInterface.getUsersList();
     }
 
 }

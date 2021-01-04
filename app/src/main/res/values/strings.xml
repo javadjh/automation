@@ -19,5 +19,7 @@
     <string name="etterTitle">عنوان نامه را وارد کنید</string>
     <string name="enterText">متن نامه را در این قسمت وارد نمایید</string>
     <string name="semat">سمت</string>
+    <string name="for_">جهت</string>
+    <string name="searchInUSers">جست و جو در کاربران</string>
 
 </resources>

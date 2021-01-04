@@ -1,6 +1,7 @@
 package com.scanner.demo.mainApp.homePage.viewmodel;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
@@ -17,10 +18,14 @@ public class ReceiveLetterVM extends BaseObservable {
     private Context context;
     private MutableLiveData<ReceiveLetterRoot> receiveLetterRootMutableLiveData = new MutableLiveData<>();
     private ReceiveLetterRoot receiveLetterRoot;
+    private String username;
+    private String role;
 
     //init VM
     public ReceiveLetterVM(Context context) {
         this.context = context;
+        SharedPreferences sharedPreferences = context.getSharedPreferences("information",Context.MODE_PRIVATE);
+        this.username = sharedPreferences.getString("fullName","");
         getReceivedLetter();
     }
 
@@ -67,4 +72,23 @@ public class ReceiveLetterVM extends BaseObservable {
     public void setMessage(String message) {
         this.message = message;
     }
+    @Bindable
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+        notifyPropertyChanged(BR.username);
+    }
+    @Bindable
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+        notifyPropertyChanged(BR.role);
+    }
 }
+
